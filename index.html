@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="description" content="">
+  <meta name="keywords" content="EMG, silent speech, neuromuscular interface, EMG-to-text, CTC, phonemes">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>orofacialEMG</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css?v=6">
+
+  <link rel="icon" href="./static/images/brain.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <!-- Page-local styles for the transcription examples (ok to keep here) -->
+  <style>
+    .transcriptions .box { margin-bottom: 14px; }
+    .transcriptions .line { margin: 6px 0; }
+    .transcriptions .muted { opacity: 0.7; font-size: 0.95em; }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                   "Liberation Mono", "Courier New", monospace;
+      font-size: 0.98rem;
+      line-height: 1.35;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+    .c-blue   { color: #1f4fff; }
+    .c-green  { color: #1b7a2e; }
+    .c-purple { color: #6a2cff; }
+    .c-orange { color: #c96a00; }
+    .c-gray   { color: #808080; }
+
+    .legend .tag { margin-right: 8px; margin-bottom: 6px; }
+    .tag-blue   { background: rgba(0, 102, 255, 0.12); color: #1f4fff; border: 1px solid rgba(0,102,255,0.25); }
+    .tag-green  { background: rgba(0, 160, 60, 0.12);  color: #1b7a2e; border: 1px solid rgba(0,160,60,0.25); }
+    .tag-purple { background: rgba(130, 60, 255, 0.12); color: #6a2cff; border: 1px solid rgba(130,60,255,0.25); }
+    .tag-orange { background: rgba(255, 140, 0, 0.12);  color: #c96a00; border: 1px solid rgba(255,140,0,0.25); }
+
+    .examples-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    @media (min-width: 900px) {
+      .examples-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarMain" class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">More Research</a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://HarshavardhanaTG.github.io/emg2speech.github.io/">emg2speech</a>
+          <a class="navbar-item" href="https://HarshavardhanaTG.github.io/emg2text.github.io/">emg2text</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+
+          <h1 class="title is-1 publication-title">
+            Geometry of orofacial neuromuscular signals: speech articulation decoding using surface electromyography
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Harshavardhana T. Gowda<sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Zachary D. McNaughton<sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Lee M. Miller<sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of California, Davis</span>
+          </div>
+
+          <div class="publication-links" style="margin-top: 1rem;">
+
+            <span class="link-block">
+              <a href="./static/pdfs/speech1.pdf"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                <span>Paper</span>
+              </a>
+            </span>
+
+            <span class="link-block">
+              <a href="https://github.com/HarshavardhanaTG/geometryOfOrofacialNeuromuscularSystem"
+                 class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+            </span>
+
+            <span class="link-block">
+                <a href="https://osf.io/ym5jd/files/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Abstract -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            <p>
+              In this work, we provide the first systematic investigation of the structure of orofacial EMG signals. 
+              We collect data from a large cohort of individuals as they perform orofacial movements and articulate English phonemes and words.
+            </p>
+
+            <p>
+              We show that the manifold of symmetric positive definite (SPD) matrices provides a natural embedding space for EMG signals. 
+              Within this space, EMG activity can be approximately represented as a linear combination of orthogonal basis vectors. 
+              We further show that distribution shift across individuals can be interpreted as a change of basis in this underlying EMG signal space.
+            </p>
+
+            <p>
+              Our results demonstrate that orofacial EMG signals can span the entire phonemic space of the English language, 
+              supporting their use as a rich neuromuscular representation for speech. We also introduce a general language-spelling interface based on NATO phonetic codes.
+            </p>
+
+            <p>
+              Together, these findings establish a foundational understanding of the data structure of orofacial EMG signals. 
+              This work serves as the basis for our subsequent studies demonstrating direct EMG-to-text and EMG-to-speech decoding, which are linked below.
+            </p>
+          </div>
+        <p>
+          For sentence-level EMG-to-text conversion (i.e., EMG → text), see our
+          <a href="https://HarshavardhanaTG.github.io/emg2text.github.io/" target="_blank" rel="noopener"> EMG-to-text demo</a>.
+        </p>
+        <p>
+          For sentence-level EMG-to-speech conversion (i.e., EMG → audio), see our
+          <a href="https://HarshavardhanaTG.github.io/emg2speech.github.io/" target="_blank" rel="noopener"> EMG-to-speech demo</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Cite</h2>
+    Gowda, Harshavardhana T., Zachary D. McNaughton, and Lee M. Miller. 
+    <em>Geometry of orofacial neuromuscular signals: speech articulation decoding using surface electromyography.</em> 
+    Journal of Neural Engineering 22.4 (2025): 046001.
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/pdfs/speech1.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link external-link" href="https://github.com/HarshavardhanaTG/geometryOfOrofacialNeuromuscularSystem" aria-disabled="true">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p style="text-align: center;">
+            Website source code based on the <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> website repo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Carousel init (safe even if no carousel exists on the page) -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof bulmaCarousel !== 'undefined') {
+    bulmaCarousel.attach('.results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      autoplay: false,
+      navigation: true,
+      pagination: true,
+      loop: false,
+      infinite: true
+    });
+  }
+});
+</script>
+
+</body>
+</html>
